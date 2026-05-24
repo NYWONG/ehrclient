@@ -11,7 +11,10 @@ uses
   Forms,
   Controls,
   Graphics,
-  Dialogs, ExtCtrls, ComCtrls, StdCtrls;
+  Dialogs,
+  ExtCtrls,
+  ComCtrls,
+  StdCtrls;
 
 type
 
@@ -19,11 +22,11 @@ type
 
   Tfrmclient = class(TForm)
     imglogo: TImage;
-    mmolog: TMemo;
-    PageControl1: TPageControl;
+    mmolog:  TMemo;
+    pc: TPageControl;
     pnlhead: TPanel;
-    sb: TStatusBar;
-    tslog: TTabSheet;
+    sb:      TStatusBar;
+    tslog:   TTabSheet;
   private
 
   public
@@ -36,5 +39,9 @@ var
 implementation
 
 {$R *.lfm}
+
+uses
+  udmclient,
+  uglobal;
 
 end.

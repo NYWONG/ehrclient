@@ -8,56 +8,163 @@
       <Unit>
         <Filename Value="ehrclient.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
-        <TopLine Value="-1"/>
-        <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="20"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="17" Y="20"/>
+        <UsageCount Value="39"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ufrmclient.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmclient"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos X="11" Y="9"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="15"/>
+        <CursorPos X="41" Y="24"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="udmclient.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dmclient"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="11"/>
-        <CursorPos Y="20"/>
-        <UsageCount Value="20"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="234"/>
+        <CursorPos X="14" Y="254"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="uglobal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="7" Y="16"/>
+        <UsageCount Value="39"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\dev\lazarus\fpcsrc\rtl\win\wininc\defines.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2516"/>
+        <CursorPos X="24" Y="2533"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\dev\lazarus\fpcsrc\packages\fcl-web\src\base\fphttpclient.pp"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="288"/>
+        <CursorPos X="16" Y="394"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="4">
-      <Position>
-        <Filename Value="udmclient.pas"/>
-        <Caret Line="25" Column="26" TopLine="11"/>
-      </Position>
-      <Position>
-        <Filename Value="udmclient.pas"/>
-        <Caret Line="26" Column="26" TopLine="11"/>
-      </Position>
-      <Position>
-        <Filename Value="udmclient.pas"/>
-        <Caret Line="27" Column="26" TopLine="11"/>
-      </Position>
-      <Position>
-        <Filename Value="udmclient.pas"/>
-        <Caret Line="20" Column="42" TopLine="11"/>
-      </Position>
+    <JumpHistory HistoryIndex="25">
       <Position>
         <Filename Value="ufrmclient.pas"/>
         <Caret Line="9" Column="23"/>
+      </Position>
+      <Position>
+        <Filename Value="ufrmclient.pas"/>
+        <Caret Line="42" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="ufrmclient.pas"/>
+        <Caret Line="18" Column="19" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="ufrmclient.pas"/>
+        <Caret Line="52" Column="69" TopLine="23"/>
+      </Position>
+      <Position>
+        <Filename Value="ufrmclient.pas"/>
+        <Caret Line="24" Column="41" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="ehrclient.lpr"/>
+        <Caret Line="20" Column="17"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="26" Column="43" TopLine="5"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="9" Column="27"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="116" Column="56" TopLine="93"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="114" Column="14" TopLine="98"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="115" Column="36" TopLine="98"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="114" Column="14" TopLine="98"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="133" Column="15" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="116" Column="60" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="D:\dev\lazarus\fpcsrc\packages\fcl-web\src\base\fphttpclient.pp"/>
+        <Caret Line="1828" Column="3" TopLine="1575"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="117" Column="53" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="125" Column="44" TopLine="112"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="116" Column="63" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="18" Column="3" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="119" Column="40" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="uglobal.pas"/>
+        <Caret Line="138" Column="38" TopLine="112"/>
+      </Position>
+      <Position>
+        <Filename Value="udmclient.pas"/>
+        <Caret Line="62" Column="18" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="udmclient.pas"/>
+        <Caret Line="265" Column="56" TopLine="72"/>
+      </Position>
+      <Position>
+        <Filename Value="udmclient.pas"/>
+        <Caret Line="191" Column="47" TopLine="175"/>
+      </Position>
+      <Position>
+        <Filename Value="udmclient.pas"/>
+        <Caret Line="187" Column="46" TopLine="257"/>
+      </Position>
+      <Position>
+        <Filename Value="udmclient.pas"/>
+        <Caret Line="175" TopLine="156"/>
       </Position>
     </JumpHistory>
     <RunParams>

@@ -1,7 +1,7 @@
 object frmclient: Tfrmclient
-  Left = 459
+  Left = 105
   Height = 587
-  Top = 172
+  Top = 373
   Width = 880
   AllowDropFiles = True
   Caption = 'frmclient'
@@ -190,7 +190,7 @@ object frmclient: Tfrmclient
       }
     end
   end
-  object PageControl1: TPageControl
+  object pc: TPageControl
     Left = 0
     Height = 495
     Top = 63
@@ -209,6 +209,8 @@ object frmclient: Tfrmclient
         Top = 0
         Width = 872
         Align = alClient
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
         TabOrder = 0
       end
     end

@@ -1,13 +1,37 @@
 object dmclient: Tdmclient
   OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
   OldCreateOrder = False
-  Height = 477
-  HorizontalOffset = 564
-  VerticalOffset = 227
-  Width = 675
+  Height = 596
+  HorizontalOffset = 633
+  VerticalOffset = 235
+  Width = 844
+  PPI = 120
   object pm: TPopupMenu
-    Left = 19
-    Top = 22
+    Left = 24
+    Top = 28
+    object mi11: TMenuItem
+      Tag = 11
+      Caption = 'show main form'
+      OnClick = mi99Click
+    end
+    object Separator1: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'setting'
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'upgrade'
+    end
+    object Separator2: TMenuItem
+      Caption = '-'
+    end
+    object mi99: TMenuItem
+      Tag = 99
+      Caption = 'exit application'
+      OnClick = mi99Click
+    end
   end
   object ti: TTrayIcon
     PopUpMenu = pm
@@ -1972,25 +1996,34 @@ object dmclient: Tdmclient
       C0030000F00F0000FC3F0000
     }
     Visible = True
-    Left = 56
-    Top = 22
+    OnDblClick = tiDblClick
+    Left = 64
+    Top = 28
   end
   object ui: TUniqueInstance
     Enabled = True
-    Left = 96
-    Top = 22
+    OnOtherInstance = uiOtherInstance
+    Left = 104
+    Top = 28
   end
   object rtchs: TRtcHttpServer
     MultiThreaded = True
     ServerPort = '5858'
     FixupRequest.DecodeFileName = True
     FixupRequest.DecodeQuery = True
-    Left = 168
-    Top = 22
+    Left = 288
+    Top = 28
   end
   object rtcdp: TRtcDataProvider
     Server = rtchs
-    Left = 208
-    Top = 22
+    OnCheckRequest = rtcdpCheckRequest
+    OnDataReceived = rtcdpDataReceived
+    Left = 328
+    Top = 28
+  end
+  object ap: TApplicationProperties
+    OnDropFiles = apDropFiles
+    Left = 144
+    Top = 28
   end
 end

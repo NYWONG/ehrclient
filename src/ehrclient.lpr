@@ -1,6 +1,7 @@
 program ehrclient;
 
-{$mode objfpc}{$H+}
+{$mode objfpc}
+{$H+}
 
 uses
   {$IFDEF UNIX}
@@ -10,20 +11,23 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, ufrmclient, udmclient
-  { you can add units after this };
+  Forms,
+  ufrmclient,
+  udmclient,
+  uglobal { you can add units after this };
 
-{$R *.res}
+  {$R *.res}
 
 begin
-  RequireDerivedFormResource:=True;
-  Application.Scaled:=True;
-  {$PUSH}{$WARN 5044 OFF}
-  Application.MainFormOnTaskbar:=True;
+  RequireDerivedFormResource := True;
+  Application.Scaled := True;
+  {$PUSH}
+  {$WARN 5044 OFF}
+  Application.MainFormOnTaskbar := True;
   {$POP}
   Application.Initialize;
+  Application.ShowMainForm := False;
   Application.CreateForm(Tfrmclient, frmclient);
   Application.CreateForm(Tdmclient, dmclient);
   Application.Run;
 end.
-

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医疗信息化系统</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.13.6/dist/css/layui.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .header-logo {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+        }
+        .header-logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+        }
+        .header-info {
+            width: 70%;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 300;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            margin-bottom: 6px;
+        }
+        .header p {
+            font-size: 12px;
+            opacity: 0.85;
+        }
+        .layui-tab {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        .layui-tab-title {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            padding: 0 10px;
+        }
+        .layui-tab-title li {
+            color: rgba(255,255,255,0.85) !important;
+            font-size: 14px;
+            font-weight: 500;
+            height: 45px;
+            line-height: 45px;
+            min-width: 80px;
+            text-align: center;
+        }
+        .layui-tab-title li:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .layui-tab-title li.layui-this {
+            color: white !important;
+            background: rgba(255,255,255,0.18);
+        }
+        .layui-tab-title li::after {
+            display: none;
+        }
+        .layui-tab-content {
+            padding: 0;
+        }
+        .tab-panel {
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .tab-card {
+            text-align: center;
+            padding: 40px 60px;
+            background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .tab-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        .tab-icon i {
+            font-size: 48px;
+            color: white;
+        }
+        .tab-title {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .tab-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .btn-action {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+            border: none !important;
+            border-radius: 25px;
+            padding: 12px 45px !important;
+            font-size: 15px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            line-height: 1.5;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+        .btn-action:active {
+            transform: translateY(0);
+        }
+        .camera-panel {
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .camera-container {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 4/3;
+            background: #333;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .camera-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .camera-actions .btn-action {
+            padding: 12px 35px !important;
+        }
+        .tts-panel {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        .tts-container {
+            width: 100%;
+            max-width: 600px;
+        }
+        .tts-textarea {
+            width: 100%;
+            height: 200px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei', sans-serif;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        .tts-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .tts-actions {
+            display: flex;
+            justify-content: center;
+        }
+        .tts-actions .btn-action {
+            padding: 12px 50px !important;
+        }
+        .scan-panel {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        .scan-result-container {
+            width: 100%;
+            max-width: 600px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .scan-placeholder {
+            text-align: center;
+            color: #999;
+        }
+        .scan-placeholder p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .scan-actions {
+            display: flex;
+            justify-content: center;
+        }
+        .scan-actions .btn-action {
+            padding: 12px 50px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E" alt="Logo">
+            </div>
+            <div class="header-info">
+                <h1>医疗信息化系统</h1>
+                <p>便捷医疗服务平台</p>
+            </div>
+        </div>
+        
+        <div class="layui-tab" lay-filter="mainTab">
+            <ul class="layui-tab-title">
+                <li class="layui-this" lay-id="camera">拍照</li>
+                <li lay-id="scan">扫描</li>
+                <li lay-id="card">读卡</li>
+                <li lay-id="convert">转换</li>
+                <li lay-id="tts">TTS</li>
+                <li lay-id="print">打印</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show" lay-id="camera">
+                    <div class="camera-panel">
+                        <div class="camera-container">
+                            <video id="video" autoplay playsinline></video>
+                            <canvas id="canvas" style="display: none;"></canvas>
+                            <img id="capturedImage" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="camera-actions">
+                            <button class="layui-btn btn-action" id="btnCameraCapture">拍照</button>
+                            <button class="layui-btn btn-action" id="btnCameraUpload">上传</button>
+                            <button class="layui-btn btn-action" id="btnCameraOCR">OCR识别</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item" lay-id="scan">
+                    <div class="scan-panel">
+                        <div class="scan-result-container">
+                            <img id="scanResultImage" style="display: none; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <div id="scanPlaceholder" class="scan-placeholder">
+                                <i class="layui-icon layui-icon-scan" style="font-size: 48px; color: #ccc;"></i>
+                                <p>扫描结果将显示在这里</p>
+                            </div>
+                        </div>
+                        <div class="scan-actions">
+                            <button class="layui-btn btn-action" id="btnScan">开始扫描</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item" lay-id="card">
+                    <div class="tab-panel">
+                        <div class="tab-card">
+                            <div class="tab-icon"><i class="layui-icon layui-icon-card"></i></div>
+                            <h3 class="tab-title">读卡功能</h3>
+                            <p class="tab-desc">读取身份证、医保卡等IC卡信息，支持多种卡片类型</p>
+                            <button class="layui-btn btn-action" id="btnCard">开始读卡</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item" lay-id="convert">
+                    <div class="tab-panel">
+                        <div class="tab-card">
+                            <div class="tab-icon"><i class="layui-icon layui-icon-transfer"></i></div>
+                            <h3 class="tab-title">文件转换</h3>
+                            <p class="tab-desc">文档格式转换、PDF转图片、图片格式转换等</p>
+                            <button class="layui-btn btn-action" id="btnConvert">选择文件</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item" lay-id="tts">
+                    <div class="tts-panel">
+                        <div class="tts-container">
+                            <textarea id="ttsInput" placeholder="请输入需要播报的文字内容..." class="tts-textarea">测试语音内容</textarea>
+                        </div>
+                        <div class="tts-actions">
+                            <button class="layui-btn btn-action" id="btnTTS">提交播报</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item" lay-id="print">
+                    <div class="tab-panel">
+                        <div class="tab-card">
+                            <div class="tab-icon"><i class="layui-icon layui-icon-print"></i></div>
+                            <h3 class="tab-title">文件打印</h3>
+                            <p class="tab-desc">打印文档、医疗报告、检验单据等，支持多种打印格式</p>
+                            <button class="layui-btn btn-action" id="btnPrint">开始打印</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/layui@2.13.6/dist/layui.js"></script>
+    <script>
+        layui.use(['element', 'layer'], function(){
+            var element = layui.element;
+            var layer = layui.layer;
+
+            element.on('tab(mainTab)', function(data){
+                console.log('切换到第', data.index + 1, '个标签');
+                if(data.index === 0) {
+                    startCamera();
+                }
+            });
+
+            var video = document.getElementById('video');
+            var canvas = document.getElementById('canvas');
+            var capturedImage = document.getElementById('capturedImage');
+            var isCaptured = false;
+
+            function startCamera() {
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function(stream) {
+                        video.srcObject = stream;
+                        video.style.display = 'block';
+                        capturedImage.style.display = 'none';
+                        isCaptured = false;
+                    })
+                    .catch(function(err) {
+                        layer.msg('无法访问摄像头: ' + err.message, {icon: 2});
+                    });
+                } else {
+                    layer.msg('您的浏览器不支持摄像头功能', {icon: 2});
+                }
+            }
+
+            document.getElementById('btnCameraCapture').onclick = function(){
+                if(isCaptured) {
+                    video.style.display = 'block';
+                    capturedImage.style.display = 'none';
+                    isCaptured = false;
+                    this.textContent = '拍照';
+                } else {
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0);
+                    capturedImage.src = canvas.toDataURL('image/png');
+                    video.style.display = 'none';
+                    capturedImage.style.display = 'block';
+                    isCaptured = true;
+                    this.textContent = '重拍';
+                    layer.msg('拍照成功', {icon: 1});
+                }
+            };
+
+            document.getElementById('btnCameraUpload').onclick = function(){
+                if(!isCaptured) {
+                    layer.msg('请先拍照', {icon: 2});
+                    return;
+                }
+                layer.msg('上传功能开发中...', {icon: 1});
+            };
+
+            document.getElementById('btnCameraOCR').onclick = function(){
+                if(!isCaptured) {
+                    layer.msg('请先拍照', {icon: 2});
+                    return;
+                }
+                layer.msg('OCR识别功能开发中...', {icon: 1});
+            };
+
+            document.getElementById('btnScan').onclick = function(){
+                var btn = this;
+                var loadingIndex = layer.load(1, {shade: [0.1, '#fff']});
+                
+                fetch('/scan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    layer.close(loadingIndex);
+                    if(data.code === 0 && data.data) {
+                        var img = document.getElementById('scanResultImage');
+                        var placeholder = document.getElementById('scanPlaceholder');
+                        img.src = data.data;
+                        img.style.display = 'block';
+                        placeholder.style.display = 'none';
+                        layer.msg(data.msg || '扫描成功', {icon: 1});
+                    } else {
+                        layer.msg(data.msg || '扫描失败', {icon: 2});
+                    }
+                })
+                .catch(function(err) {
+                    layer.close(loadingIndex);
+                    layer.msg('请求失败: ' + err.message, {icon: 2});
+                });
+            };
+            document.getElementById('btnCard').onclick = function(){
+                layer.msg('读卡功能开发中...', {icon: 1});
+            };
+            document.getElementById('btnConvert').onclick = function(){
+                layer.msg('文件转换功能开发中...', {icon: 1});
+            };
+            document.getElementById('btnTTS').onclick = function(){
+                var text = document.getElementById('ttsInput').value.trim();
+                if(!text) {
+                    layer.msg('请输入需要播报的文字', {icon: 2});
+                    return;
+                }
+                
+                var loadingIndex = layer.load(1, {shade: [0.1, '#fff']});
+                
+                fetch('/tts?txt=' + encodeURIComponent(text), {
+                    method: 'GET'
+                })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    layer.close(loadingIndex);
+                    if(data.success || data.code === 0) {
+                        layer.msg('播报成功', {icon: 1});
+                    } else {
+                        layer.msg(data.message || '播报失败', {icon: 2});
+                    }
+                })
+                .catch(function(err) {
+                    layer.close(loadingIndex);
+                    layer.msg('请求失败: ' + err.message, {icon: 2});
+                });
+            };
+            document.getElementById('btnPrint').onclick = function(){
+                layer.msg('打印功能开发中...', {icon: 1});
+            };
+
+            startCamera();
+        });
+    </script>
+</body>
+</html>
